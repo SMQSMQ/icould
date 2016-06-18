@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todolist">
+<head>
+  <meta charset="UTF-8">
+  <title>提醒事项</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="iconfont/iconfont.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/angular.js"></script>
+  <script src="js/angular-animate.js"></script>
+  <script src="js/index.js"></script>
+<body ng-controller="main">
+  <div class="container">
+    <div class="container-inner">
+      <div class="container-left">
+        <div class="icould-list-wrap">
+          <ul class="icould-lists">
+            <li class="icould-item icloud-notice">
+              <span class="">iCloud</span>
+              <span class="notice">提醒事项</span>
+              <span class="add" ng-click="add()"></span>
+            </li>
+            <li class="icould-item">
+              <span class="icould-icon iconfont icon-naozhong"></span>
+              <span class="icould-title">已计划</span>
+            </li>
+            <li class="icould-item" ng-repeat="v in lists" ng-click="setCurrent($index)">
+              <span class="icould-icon" ng-class="v.theam"></span>
+              <input class="icould-title" ng-model="v.name" value="v.name" ng-change="saveData()">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container-right">
+        <div class="search-wrap">
+          <input type="text" class="search-inout" placeholder="搜索所有提醒">
+          <span></span>
+        </div>
+        <div class="icould-details-wrap">
+          <div class="icould-details">
+            <div class="title-wrap">
+              <span class="title" ng-class="current.theam">{{current.name}}</span>
+              <span class="chose" ng-class="current.theam" ng-click="show=!show" ng-init="show=false">选项</span>
+            </div>
+            <div class="time">2016年6月4日 星期六</div>
+            <div class="finished-wrap">
+              <input type="checkbox" id="point1" style="display:none">
+              <section>
+                <p class="h3">
+                  <span class="point"><label for="point1"></label></span>
+                  <span class="finished-count">已完成</span>
+                  <span class="clear" ng-class="current.theam">清除已完成事件</span>
+                </p>
+                <ul class="details-lists">
+                  <li class="details-item" ng-repeat="v in current.shixiang" ng-show="v.state" ng-click="v.state=!v.state">
+                    <span class="circle" ng-class="current.theam">
+                      <span class="small" ng-class="current.theam"></span>
+                    </span>
+                    <span>{{v.name}}</span>
+                  </li>
+                </ul>
+              </section>
+              <input type="checkbox" id="point" style="display:none">
+              <section>
+                <p class="h3">
+                  <span class="point"><label for="point"></label></span>
+                  <span class="finished-count">未完成</span>
+                </p>
+                <ul class="details-lists">
+                  <li class="details-item" ng-repeat="v in current.shixiang" ng-show="!v.state" ng-click="v.state=!v.state">
+                      <span class="circle" ng-class="current.theam"></span>
+                    <span>{{v.name}}</span>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <div class="alert-wrap" ng-show="show">
+            <div class="alert-inner">
+              <div class="alert-input">
+                <input type="text" ng-model="current.name" value="current.name" ng-class="current.theam">
+              </div>
+              <div class="color-lists-wrap">
+                <h3>列表颜色</h3>
+                <ul class="color-lists">
+                  <li class="color-item"></li>
+                  <li class="color-item"></li>
+                  <li class="color-item"></li>
+                  <li class="color-item"></li>
+                  <li class="color-item"></li>
+                  <li class="color-item"></li>
+                  <li class="color-item"></li>
+                </ul>
+              </div>
+              <div class="btn-wrap">
+                <span  class="delete btn" ng-click="deleteList(current.id)">删除</span>
+                <span  class="done btn">完成</span>
+                <span  class="quxiao btn">取消</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>
