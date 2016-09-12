@@ -56,18 +56,10 @@ input {
   border: 1px solid red;
 }
 
-.color-lists .color-item:nth-child(1) {
-  background: red;
-}
-
 .orange {
   background: orange;
   color: orange;
   border: 1px solid orange;
-}
-
-.color-lists .color-item:nth-child(2) {
-  background: orange;
 }
 
 .yellow {
@@ -76,18 +68,10 @@ input {
   border: 1px solid yellow;
 }
 
-.color-lists .color-item:nth-child(3) {
-  background: yellow;
-}
-
 .green {
   background: green;
   color: green;
   border: 1px solid green;
-}
-
-.color-lists .color-item:nth-child(4) {
-  background: green;
 }
 
 .blue {
@@ -96,18 +80,10 @@ input {
   border: 1px solid blue;
 }
 
-.color-lists .color-item:nth-child(5) {
-  background: blue;
-}
-
 .pink {
   background: pink;
   color: pink;
   border: 1px solid pink;
-}
-
-.color-lists .color-item:nth-child(6) {
-  background: pink;
 }
 
 .purple {
@@ -116,13 +92,9 @@ input {
   border: 1px solid purple;
 }
 
-.color-lists .color-item:nth-child(7) {
-  background: purple;
-}
-
 .container {
-  width: 1366px;
-  height: 630px;
+  width: 100%;
+  height: 100%;
 }
 
 .container-inner {
@@ -168,6 +140,7 @@ input {
 .container-left .icould-lists .icould-item input {
   color: #fff;
   font-size: 18px;
+  width: 90%;
 }
 
 .container-left .icould-lists .icould-item .icould-icon {
@@ -176,6 +149,10 @@ input {
   margin: 12px 7px;
   border-radius: 50%;
   box-sizing: border-box;
+}
+
+.container-left .icould-lists .icould-item .icould-icon.icon-naozhong {
+  margin: 0;
 }
 
 .container-left .icloud-notice {
@@ -195,6 +172,7 @@ input {
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 
 .container-left .icloud-notice .add:after {
@@ -253,6 +231,7 @@ input {
   line-height: 80px;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .icould-details .title-wrap .title {
@@ -402,7 +381,7 @@ input {
   float: left;
   width: 25px;
   height: 25px;
-  margin: 9px;
+  margin: 8px;
   border-radius: 50%;
 }
 

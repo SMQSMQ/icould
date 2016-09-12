@@ -9,14 +9,15 @@ myTodo.controller('main',['$scope',function($scope){
     localStorage.todo = angular.toJson(this.lists);
   }
   $scope.current = null;
+  $scope.color = ['red','orange','yellow','green','blue','pink','purple'];
   $scope.add = function(){
     var len = $scope.lists.length;
-    var color = ['red','orange','yellow','green','blue','pink','purple'];
+    // var color = ['red','orange','yellow','green','blue','pink','purple'];
     var id = (len == 0)?1001:(Math.max.apply(null,$scope.lists.map(function(v,i){
       return v.id;
     })) + 1)
     var list = {id:id,
-      theam: color[len%7],
+      theam: $scope.color[len%7],
       name:'清单'+(len+1),
       shixiang:[
         {name: '吃饭',state: true},
@@ -40,6 +41,18 @@ myTodo.controller('main',['$scope',function($scope){
       return v.id !== id;
     })
     this.saveDate()
+  }
+
+  $scope.colorChange = function(index){
+    angular.forEach($scope.lists,function(v,i){
+      if(v.id == $scope.current.id){
+        // $scope.current.theam = $scope.color[index];
+        v.theam = $scope.color[index];
+      }
+      // console.log(i,v)
+    })
+    this.saveDate();
+    // $scope.current.theam = $scope.color[index]
   }
 
 }])
